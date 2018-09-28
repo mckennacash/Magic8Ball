@@ -5,25 +5,30 @@ import java.util.Scanner;
 public class Magic8Ball {
     public static void main(String[]args){
 
-    Scanner keyboard;
-    int testing;
-    String question;
-
+        Scanner keyboard;
+        int testing;
+        String question;
+        String userAnswer;
     keyboard = new Scanner(System.in);
+
 
         System.out.println("Do you want to ask the Magic 8 Ball a Question?");
         keyboard.nextLine();
-       System.out.println("Please input a number from 1 to 100");
-       testing = keyboard.nextInt();
+        do {
+            testing = (int) (Math.random() * 100);
+
         System.out.println("Now ask your question below");
         question = keyboard.nextLine();
+      // System.out.println("Please input a number from 1 to 100");
+      // testing = keyboard.nextInt();
         if (testing<=10) {
             System.out.println("That's the good tea sis");
         }
         else if (testing<=20){
+
             System.out.println("Sources point to no sishster");
         }
-        else if (testing<=30){
+       else if (testing<=30){
             System.out.println("Snatch your future cause it's nice");
         }
         else if (testing<=40){
@@ -54,5 +59,16 @@ public class Magic8Ball {
 
             System.out.println("Your future looks about as dull as the question you asked");
         }
-    }
+
+
+        System.out.println("Want to ask another question?");
+        //userAnswer = keyboard.nextLine();
+        userAnswer = keyboard.nextLine();
+        if (userAnswer.equalsIgnoreCase("no")){break;}
+
+    }while (!userAnswer.equalsIgnoreCase("no"));
+
+
+
+}
 }
